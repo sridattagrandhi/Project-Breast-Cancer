@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>satvik likes men!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    
+    <script src="https://kit.fontawesome.com/bdc59ad6b0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>Welcome| home</title>
+    <link rel="shortcut icon" type="image/jpg" href="favicon.ico" />
+  </head>  
+  <body>
+     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBv7ZrJRIC-Z3GvdfXHYfNkTgmZfZTEa4U",
+            authDomain: "chemo-ae40b.firebaseapp.com",
+            databaseURL: "https://chemo-ae40b.firebaseio.com",
+            projectId: "chemo-ae40b",
+            storageBucket: "chemo-ae40b.appspot.com",
+            messagingSenderId: "902368724751",
+            appId: "1:902368724751:web:e59ba69cb4f4ca4d8ce07a",
+            measurementId: "G-7V1KPQGDN0"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        var leadsRef = firebase.database().ref('testdata');
+        leadsRef.on('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var childData = childSnapshot.val();
+                var myJSON = JSON.stringify(childData);
+                if (myJSON == '{"Cancer":"[0.0, 1.0]"}') {
+                    myJSON = "Not Cancerous";
+                    document.getElementById('output').innerHTML = myJSON;
+                }
+                if (myJSON == '{"Cancer":"[1.0, 0.0]"}') {
+                    myJSON = "cancer";
+                    document.getElementById('output').innerHTML = myJSON;
+                }
+            });
+        });
+    </script>
+    <section id="home">
+        <h1 class="header">Project Eir</h1>
+    </section>
+
+    <section id="mission">
+        <div data-aos="fade-in" data-aos-duration="2000">
+
+            <h1 class="title"> Our Project</h1>
+            <div class="line"></div>
+
+            <div class="card">
+                <h1 class="mission">Our Mission</h1>
+                <h3 class="missionstatement">Project Eir aims to accurately provide both doctors and patients with a credible software platform that not only enhances communication of certain health aspects, but also assists in affirming possible health cases. At its basis, Eir allows
+                    for patients and doctors to better communicate through a texting interface. The doctor also has the ability to upload important information, such as blood pressure, triglycerides, cholesterol, and chemotherapy results. In addition,
+                    once doctors upload MRI Scans, Eir checks, not only for cancer, but also if chemotherapy is benefiting the health of the patient.
+                </h3>
+            </div>
+        </div>
+        <div data-aos="flip-down">
+            <table style="margin: 0 auto;">
+                <tr>
+                    <td>
+                        <img src="https://raw.githubusercontent.com/TheHellfire99/Eir/master/cancer.png" class="image">
+                    </td>
+                    <td>
+                        <img src="https://raw.githubusercontent.com/TheHellfire99/Eir/master/cancer2.jpg" class="image2">
+                    </td>
+                    <td>
+                        <img src="https://raw.githubusercontent.com/TheHellfire99/Eir/master/cancer3.jpg" class="image2">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section id="benefit">
+        <div data-aos="zoom-in-down" data-aos-duration="2000">
+            <h1 class="title"> Benefits</h1>
+            <div class="line"></div>
+            <div class="inline">
+                <img src="https://raw.githubusercontent.com/TheHellfire99/Eir/master/IMG_1233.jpg" class="app1">
+                <img src="https://raw.githubusercontent.com/TheHellfire99/Eir/master/IMG_1234.jpg" class="app2">
+                <img src="https://raw.githubusercontent.com/TheHellfire99/Eir/master/IMG_1236.jpg" class="app3">
+            </div>
+            <div class="pobene">
+                <h1>Potential Benefits & Uses</h1>
+                <ul style="list-style-type:disc;">
+                    <li>Establishes direct and efficient communication between doctor and patient</li>
+                    <li>Displays accurate medical information for present and future reference</li>
+                    <li>Allows for analyzing MRI scanners</li>
+                    <li>Detects Breast Cancer with 99.8% accuracy</li>
+                    <li>Pinpoints Breast Cancer-stricken areas for diagnosis</li>
+                    <li>Aims to reduce the amounts of false-positives</li>
+                    <li>Help in getting rid of Breast Cancer faster so less money needs to be spent on treatment</li>
+                    <li>FREE TO USE!!!!!</li>
+                    <li>Encourages patients to be healhty and have a good diet. The diet is given to them by proffessional dieteciens</li>
+                    <li>Helps save money so kids can go to college</li>
+                    <li>Could save millions of lives!</li>
+                    <li>Makes the job easier on the doctor so he can be more focused</li>
+                    <li>There are basicaly numerous benefits of this. THIS WILL REVOLUTIONIZE THE MEDICAL FEILD!</li>
+                    <li>Faster communication between patients and doctors</li>
+                    <li>Explains what to do in detail</li>
+                    <li>Shows your pills to take and when to eat them</li>
+                </ul>
+            </div>
+        </div>
+        <h1 class="name">patient satvik:</h1>
+        <p id="output">
+
+
+        </p>
+
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
+    <script>
+        AOS.init();
+    </script>
+  </body>
+</html>
